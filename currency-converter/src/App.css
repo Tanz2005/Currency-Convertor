@@ -1,8 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+body.dark {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+body.light {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
 }
 
 .app {
@@ -10,25 +11,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
 }
 
 /* Glass Card */
 .card {
   backdrop-filter: blur(15px);
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
   padding: 30px;
+  border-radius: 20px;
   width: 350px;
-  color: white;
   text-align: center;
-
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-h1 {
-  margin-bottom: 20px;
+  color: white;
 }
 
 input {
@@ -37,15 +30,12 @@ input {
   border-radius: 10px;
   border: none;
   margin-bottom: 20px;
-  font-size: 16px;
 }
 
-/* Row Layout */
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 select {
@@ -55,40 +45,23 @@ select {
   border: none;
 }
 
-/* Swap Button */
 .swap {
-  background: white;
-  border: none;
-  border-radius: 50%;
   padding: 10px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.swap:hover {
-  transform: rotate(180deg);
-}
-
-/* Convert Button */
-.convert {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #00c6ff;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.convert:hover {
-  background: #0072ff;
-}
-
-/* Result */
 .result {
   margin-top: 20px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
 }
