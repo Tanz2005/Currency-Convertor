@@ -17,12 +17,22 @@ const Converter = () => {
   setLoading(true);
   try {
     const res = await fetch(
-      `https://api.exchangerate.host/convert?from=${from}&to=${to}&amount=${amount}`
+      `https://open.er-api.com/v6/latest/${from}`
     );
     const data = await res.json();
 
-    setResult(data.result.toFixed(2));
-  } catch {
+    console.log("API DATA:", data);
+
+    if (!data || !data.rates || !data.rates[to]) {
+      throw new Error("Invalid API response");
+    }
+
+    const rate = data.rates[to];
+    const converted = amount * rate;
+
+    setResult(converted.toFixed(2));
+  } catch (err) {
+    console.error(err);
     setResult("Error");
   }
   setLoading(false);
@@ -37,31 +47,30 @@ const Converter = () => {
   };
 
   return (
-    <div className="card">
-      <h1>💱 Converter</h1>
+  <div className="card">
+    <h1>💱 Converter</h1>
 
-      <input
-        type="number"
-        placeholder="Enter amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
+    <input
+      type="number"
+      placeholder="Enter amount"
+      value={amount}
+      onChange={(e) => setAmount(e.target.value)}
+    />
 
-      <div className="row">
-        <CurrencySelect value={from} onChange={setFrom} currencies={currencyList} />
+    <div className="row">
+      <CurrencySelect value={from} onChange={setFrom} currencies={currencyList} />
 
-        <button className="swap" onClick={swap}>
-          🔄
-        </button>
+      <button className="swap" onClick={swap}>
+        🔄
+      </button>
 
-        <CurrencySelect value={to} onChange={setTo} currencies={currencyList} />
-      </div>
-
-      <div className="result">
-        {loading ? "Converting..." : `${result} ${to}`}
-      </div>
+      <CurrencySelect value={to} onChange={setTo} currencies={currencyList} />
     </div>
-  );
-};
 
+    <div className="result">
+      {loading ? "Converting..." : `${result} ${to}`}
+    </div>
+  </div>
+);
+};
 export default Converter;
