@@ -14,19 +14,19 @@ const Converter = () => {
     if (!amount) return;
 
     const convert = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch(
-          `https://api.exchangerate-api.com/v4/latest/${from}`
-        );
-        const data = await res.json();
-        const rate = data.rates[to];
-        setResult((amount * rate).toFixed(2));
-      } catch {
-        setResult("Error");
-      }
-      setLoading(false);
-    };
+  setLoading(true);
+  try {
+    const res = await fetch(
+      `https://api.exchangerate.host/convert?from=${from}&to=${to}&amount=${amount}`
+    );
+    const data = await res.json();
+
+    setResult(data.result.toFixed(2));
+  } catch {
+    setResult("Error");
+  }
+  setLoading(false);
+};
 
     convert();
   }, [amount, from, to]);

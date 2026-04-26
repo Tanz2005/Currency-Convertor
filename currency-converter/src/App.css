@@ -1,11 +1,23 @@
-body.dark {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
+/* LIGHT THEME */
 body.light {
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  background: #f5f5f5;
+  color: #111;
 }
 
+/* DARK THEME (soft, not harsh) */
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+/* Center */
 .app {
   height: 100vh;
   display: flex;
@@ -13,49 +25,90 @@ body.light {
   align-items: center;
 }
 
-/* Glass Card */
+/* Card */
 .card {
-  backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.1);
   padding: 30px;
-  border-radius: 20px;
-  width: 350px;
+  border-radius: 16px;
+  width: 360px;
   text-align: center;
-  color: white;
+  transition: 0.3s;
 }
 
+/* Light card */
+body.light .card {
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark card */
+body.dark .card {
+  background: #1e1e1e;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Input */
 input {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
-  border: none;
   margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
 }
 
+/* Dark input */
+body.dark input {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+/* Row */
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Select */
 select {
   width: 40%;
   padding: 10px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #ccc;
 }
 
+/* Dark select */
+body.dark select {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Swap */
 .swap {
   padding: 10px;
   border-radius: 50%;
+  border: 1px solid #ccc;
   cursor: pointer;
+  background: white;
 }
 
+/* Dark swap */
+body.dark .swap {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+}
+
+/* Result */
 .result {
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 22px;
+  font-weight: 600;
 }
 
+/* Toggle button */
 .theme-toggle {
   position: absolute;
   top: 20px;
@@ -64,4 +117,24 @@ select {
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  background: #ddd;
+}
+
+/* Dark toggle */
+body.dark .theme-toggle {
+  background: #333;
+  color: white;
+}
+
+.currency-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currency-select img {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 4px;
 }
