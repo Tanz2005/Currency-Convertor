@@ -1,20 +1,30 @@
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1e2a38, #3a6073);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.app {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
 }
 
-.container {
-  background: white;
+/* Glass Card */
+.card {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   padding: 30px;
-  border-radius: 15px;
-  text-align: center;
   width: 350px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
@@ -22,13 +32,16 @@ h1 {
 }
 
 input {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
   margin-bottom: 20px;
   font-size: 16px;
 }
 
-.dropdowns {
+/* Row Layout */
+.row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,31 +50,45 @@ input {
 
 select {
   width: 40%;
-  padding: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
 }
 
+/* Swap Button */
 .swap {
-  padding: 8px;
-  cursor: pointer;
+  background: white;
   border: none;
-  background: #ddd;
   border-radius: 50%;
-}
-
-.convert-btn {
-  padding: 10px 20px;
-  background: #28a745;
-  color: white;
-  border: none;
+  padding: 10px;
   cursor: pointer;
-  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.swap:hover {
+  transform: rotate(180deg);
+}
+
+/* Convert Button */
+.convert {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #00c6ff;
+  color: white;
   font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.convert-btn:hover {
-  background: #218838;
+.convert:hover {
+  background: #0072ff;
 }
 
+/* Result */
 .result {
   margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }
